@@ -1,0 +1,22 @@
+# Системные папки компиляции Visual Studio (мусор)
+.vs/
+x64/
+[Dd]ebug/
+[Rr]elease/
+
+# Временные файлы сборки
+*.obj
+*.pdb
+*.ilk
+*.idb
+*.tlog
+*.log
+*.lastbuildstate
+*.VC.db
+*.VC.opendb
+
+# Лишние файлы по твоему запросу (отчеты и методичка)
+lab3.docx
+lab3.typ
+metoda.pdf
+ЛР_№3_Наследование/

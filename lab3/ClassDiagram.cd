@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DeskWatch">
+    <Position X="7" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAACAAAAAAAAAEQAAAAIAABAEAAAACAAA=</HashCode>
+      <FileName>DeskWatch.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ElectronicWatch">
+    <Position X="3.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BCAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEQAAAAAAA=</HashCode>
+      <FileName>ElectronicWatch.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="MechanicalWatch">
+    <Position X="9" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAgAAAAAIAAAAAAAIAAAAAEAAAACAAA=</HashCode>
+      <FileName>MechanicalWatch.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmartWatch">
+    <Position X="3.75" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAgCAAAAAAACAAAABAAAAAAAEAAAAIAAA=</HashCode>
+      <FileName>SmartWatch.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Watch">
+    <Position X="6.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEBAAAAAAAQACgAAAgAARAAAAEQAAAAAAEAAAAAAAA=</HashCode>
+      <FileName>Watch.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="WristWatch">
+    <Position X="11.5" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAIAAACAAAAAAAAAAAAAAAAAIEAEBAAAABAA=</HashCode>
+      <FileName>WristWatch.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
