@@ -16,5 +16,4 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const ElectronicWatch& w);
 	friend std::istream& operator>>(std::istream& is, ElectronicWatch& w);
 
-	void printRow() const override;
 };

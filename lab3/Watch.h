@@ -19,7 +19,6 @@ public:
 	void setBrand(const char* newBrand);
 
 	static void printHeader();                                          // метод для шапки таблицы
-	virtual void printRow() const;                                      // метод для строки таблицы
 	virtual void inputParams();                                         // метод для ввода доп. полей
 
 	friend std::ostream& operator<<(std::ostream& os, const Watch& w);  // перегрузка вывода

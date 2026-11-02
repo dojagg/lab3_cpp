@@ -33,12 +33,12 @@ void WristWatch::setWaterproof(bool waterproof)
 	this->isWaterproof = waterproof;
 }
 
-void WristWatch::printRow() const                                       
-{
-	MechanicalWatch::printRow();                                        
-	std::string spec = "Точность: " + std::to_string(accuracy) + " с/д, " + (isWaterproof ? "Влагозащита" : "Боится воды");
-	std::cout << "| " << std::left << std::setw(43) << spec << "|" << std::endl;
-}
+//void WristWatch::printRow() const                                       
+//{
+//	MechanicalWatch::printRow();                                        
+//	std::string spec = "Точность: " + std::to_string(accuracy) + " с/д, " + (isWaterproof ? "Влагозащита" : "Боится воды");
+//	std::cout <<  std::setw(43) << spec << std::endl;
+//}
 
 void WristWatch::inputParams()                                          // ввод специфичных параметров
 {
@@ -50,14 +50,13 @@ void WristWatch::inputParams()                                          // ввод 
 std::ostream& operator<<(std::ostream& os, const WristWatch& w)
 {
 	os << static_cast<const MechanicalWatch&>(w)
-		<< ", " << (w.isWaterproof ? "Влагозащита" : "Боится воды");
+		<< "Точность: " << w.accuracy << " с/д, " << (w.isWaterproof ? "Влагозащита" : "Боится воды");
 	return os;
 }
 
 std::istream& operator>>(std::istream& is, WristWatch& w)
 {
 	is >> static_cast<MechanicalWatch&>(w);                             // вводим бренд, цену и точность
-	std::cout << "Влагозащита (1-да, 0-нет): ";
 	int water;
 	is >> water;
 	w.isWaterproof = (water == 1);

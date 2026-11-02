@@ -31,12 +31,12 @@ void SmartWatch::setHeartRate(bool heartRate)
 	this->hasHeartRate = heartRate;
 }
 
-void SmartWatch::printRow() const
-{
-	ElectronicWatch::printRow();
-	std::string spec = "Заряд: " + std::to_string(batteryLife) + " мес, " + (hasHeartRate ? "С пульсометром" : "Без пульсометра");
-	std::cout << "| " << std::left << std::setw(43) << spec << "|" << std::endl;
-}
+//void SmartWatch::printRow() const
+//{
+//	ElectronicWatch::printRow();
+//	std::string spec = "Заряд: " + std::to_string(batteryLife) + " мес, " + (hasHeartRate ? "С пульсометром" : "Без пульсометра");
+//	std::cout  << std::setw(43) << spec << std::endl;
+//}
 
 void SmartWatch::inputParams()
 {
@@ -48,14 +48,13 @@ void SmartWatch::inputParams()
 std::ostream& operator<<(std::ostream& os, const SmartWatch& w)
 {
 	os << static_cast<const ElectronicWatch&>(w)
-		<< ", " << (w.hasHeartRate ? "С пульсометром" : "Без пульсометра");
+		<< "Заряд: " << w.batteryLife << " мес, " << (w.hasHeartRate ? "С пульсометром" : "Без пульсометра");
 	return os;
 }
 
 std::istream& operator>>(std::istream& is, SmartWatch& w)
 {
 	is >> static_cast<ElectronicWatch&>(w);                             // вводим бренд, цену и батарею
-	std::cout << "Пульсометр (1-да, 0-нет): ";
 	int heart;
 	is >> heart;
 	w.hasHeartRate = (heart == 1);

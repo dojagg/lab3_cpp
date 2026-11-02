@@ -16,6 +16,5 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const DeskWatch& w);
 	friend std::istream& operator>>(std::istream& is, DeskWatch& w);
 
-	void printRow() const override;
 	void inputParams() override;
 };

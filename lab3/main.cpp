@@ -31,6 +31,7 @@ int main()
 			std::cout << "7. Выход" << std::endl;
 			std::cout << "Действие: ";
 			std::cin >> menuChoice;
+			std::cin.ignore();
 
 			if (menuChoice >= 1 && menuChoice <= 4)
 				showCatalog(catalog, N, menuChoice);                    

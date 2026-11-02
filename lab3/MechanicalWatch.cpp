@@ -33,20 +33,19 @@ void MechanicalWatch::setAccuracy(int newAccuracy)                       // сетт
 
 std::ostream& operator<<(std::ostream& os, const MechanicalWatch& w)
 {
-	os << static_cast<const Watch&>(w) << ", Точность: " << w.accuracy << " с/д";
+	os << static_cast<const Watch&>(w) << std::setw(18) << "Механические";
 	return os;
 }
 
 std::istream& operator>>(std::istream& is, MechanicalWatch& w)
 {
 	is >> static_cast<Watch&>(w);                                       
-	std::cout << "Точность хода (сек/сут): ";
 	is >> w.accuracy;
 	return is;
 }
 
-void MechanicalWatch::printRow() const
-{
-	Watch::printRow();                                                 
-	std::cout << "| " << std::left << std::setw(16) << "Механические"; 
-}
+//void MechanicalWatch::printRow() const
+//{
+//	Watch::printRow();                                                 
+//	std::cout << std::setw(16) << "Механические"; 
+//}

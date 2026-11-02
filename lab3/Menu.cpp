@@ -7,23 +7,32 @@
 void showCatalog(Watch* catalog[], int size, int filterType)
 {
 	std::cout << "\nТЕКУЩИЙ КАТАЛОГ:" << std::endl;
-	Watch::printHeader();                                               // вывод шапки
+	Watch::printHeader();                                               // шапка
 	for (int i = 0; i < size; i++)
 	{
-		bool match = false;
-		if (filterType == 1)
-			match = true;                                                 // все часы без фильтра
-		else if (filterType == 2 && dynamic_cast<WristWatch*>(catalog[i]))
-			match = true;                                                 // только наручные
-		else if (filterType == 3 && dynamic_cast<DeskWatch*>(catalog[i])) 
-			match = true;                                                 // только настольные
-		else if (filterType == 4 && dynamic_cast<SmartWatch*>(catalog[i]))
-			match = true;                                                 // только умные
+		WristWatch* ww = dynamic_cast<WristWatch*>(catalog[i]);
+		DeskWatch* dw = dynamic_cast<DeskWatch*>(catalog[i]);
+		SmartWatch* sw = dynamic_cast<SmartWatch*>(catalog[i]);
 
-		if (match)
-			catalog[i]->printRow();                                     // вывод подходящей строки
+		if (filterType == 1) // Вывод всего каталога
+		{
+			if (ww) std::cout << *ww << std::endl;
+			else if (dw) std::cout << *dw << std::endl;
+			else if (sw) std::cout << *sw << std::endl;
+		}
+		else if (filterType == 2 && ww) // Только наручные
+		{
+			std::cout << *ww << std::endl;
+		}
+		else if (filterType == 3 && dw) // Только настольные
+		{
+			std::cout << *dw << std::endl;
+		}
+		else if (filterType == 4 && sw) // Только умные
+		{
+			std::cout << *sw << std::endl;
+		}
 	}
-	std::cout << std::string(93, '-') << std::endl;                     
 }
 
 void fillCatalog(Watch* catalog[], int& size, int mode)
@@ -42,21 +51,25 @@ void fillCatalog(Watch* catalog[], int& size, int mode)
 			std::cout << "3. Умные" << std::endl;
 			std::cout << "Ваш выбор : ";
 			std::cin >> type;
+			std::cin.ignore();
 
-			if (type == 1) {
-				WristWatch* w = new WristWatch();
-				std::cin >> *w;                                         
-				catalog[i] = w;
+			if (type == 1)
+			{
+				std::cout << "Введите через пробел: Бренд Цену Точность(сек/д) Влагозащиту(1/0): ";
+				catalog[i] = new WristWatch();
+				std::cin >> *catalog[i];
 			}
-			else if (type == 2) {
-				DeskWatch* d = new DeskWatch();
-				std::cin >> *d;                                         
-				catalog[i] = d;
+			else if (type == 2)
+			{
+				std::cout << "Введите через пробел: Бренд Цену Точность(сек/д) Будильник(1/0): ";
+				catalog[i] = new DeskWatch();
+				std::cin >> *catalog[i];
 			}
-			else {
-				SmartWatch* s = new SmartWatch();
-				std::cin >> *s;                                         
-				catalog[i] = s;
+			else
+			{
+				std::cout << "Введите через пробел: Бренд Цену Заряд(мес) Пульсометр(1/0): ";
+				catalog[i] = new SmartWatch();
+				std::cin >> *catalog[i];
 			}
 
 			std::cin >> *catalog[i];
@@ -107,26 +120,27 @@ void addWatch(Watch* catalog[], int& size)
 	std::cout << "3. Умные" << std::endl;
 	std::cout << "Ваш выбор : ";
 	std::cin >> type;
+	std::cin.ignore();
 
-	if (type == 1) {
-		WristWatch* w = new WristWatch();
-		std::cin >> *w;
-		catalog[size] = w;
+	if (type == 1)
+	{
+		catalog[size] = new WristWatch();
+		std::cout << "Введите через пробел: Бренд Цену Точность(сек/д) Влагозащиту(1/0): ";
+		std::cin >> *(dynamic_cast<WristWatch*>(catalog[size]));
 	}
-	else if (type == 2) {
-		DeskWatch* d = new DeskWatch();
-		std::cin >> *d;
-		catalog[size] = d;
+	else if (type == 2)
+	{
+		catalog[size] = new DeskWatch();
+		std::cout << "Введите через пробел: Бренд Цену Точность(сек/д) Будильник(1/0): ";
+		std::cin >> *(dynamic_cast<DeskWatch*>(catalog[size]));
 	}
-	else {
-		SmartWatch* s = new SmartWatch();
-		std::cin >> *s;
-		catalog[size] = s;
+	else
+	{
+		catalog[size] = new SmartWatch();
+		std::cout << "Введите через пробел: Бренд Цену Заряд(мес) Пульсометр(1/0): ";
+		std::cin >> *(dynamic_cast<SmartWatch*>(catalog[size]));
 	}
 
-	std::cin >> *catalog[size];
-	catalog[size]->inputParams();
-
-	size++; 
-	std::cout << "Часы добавлены! Теперь в каталоге: " << size << " шт." << std::endl;
+	size++;
+	std::cout << "Часы успешно добавлены! Теперь в каталоге: " << size << " шт." << std::endl;
 }

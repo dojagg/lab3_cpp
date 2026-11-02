@@ -66,38 +66,32 @@ void Watch::setBrand(const char* newBrand)                              // сетте
 
 void Watch::printHeader()                                               // метод отрисовки шапки таблицы
 {
-	std::cout << std::string(93	, '-') << std::endl;
 	std::cout << std::left
-		<< std::setw(16) << "| Бренд"
-		<< std::setw(13) << "| Цена (руб.)"
-		<< std::setw(18) << "| Тип механизма"
-		<< std::setw(45) << "| Доп. характеристики" << "|" << std::endl;
-	std::cout << std::string(93, '-') << std::endl;
+		<< std::setw(15) << "\nБренд"
+		<< std::setw(16) << "Цена (руб.)"
+		<< std::setw(21) << "Тип механизма"
+		<< std::setw(45) << "Доп. характеристики\n" << std::endl;
 }
 
-void Watch::printRow() const                                            // метод вывода полей базового класса
-{
-	std::cout << std::left << "| "
-		<< std::setw(14) << this->brand
-		<< "| " << std::setw(11) << this->price;
-}
+//void Watch::printRow() const                                            // метод вывода полей базового класса
+//{
+//	std::cout << std::setw(14) << this->brand << std::setw(11) << this->price;
+//}
 
 void Watch::inputParams() {}                                           
 
-std::ostream& operator<<(std::ostream& os, const Watch& w)              // функция перегрузка вывода
+std::ostream& operator<<(std::ostream& os, const Watch& w)
 {
-	os << "Бренд: " << w.brand << ", Цена: " << w.price << " руб.";
+	os << std::left << std::setw(16) << w.brand << std::setw(15) << w.price;
 	return os;
 }
 
 std::istream& operator>>(std::istream& is, Watch& w)                    // функция перегрузка ввода
 {
 	char buffer[256];
-	std::cout << "Введите бренд: ";
 	is >> buffer;
 	w.setBrand(buffer);                                                 
 
-	std::cout << "Введите цену: ";
 	is >> w.price;
 	return is;
 }

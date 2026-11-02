@@ -33,22 +33,21 @@ void ElectronicWatch::setBatteryLife(int newBatteryLife)                  // сет
 		this->batteryLife = newBatteryLife;
 }
 
-void ElectronicWatch::printRow() const                                  
-{
-	Watch::printRow();
-	std::cout << "| " << std::left << std::setw(16) << "Ёлектронные";
-}
+//void ElectronicWatch::printRow() const                                  
+//{
+//	Watch::printRow();
+//	std::cout << std::setw(16) << "Ёлектронные";
+//}
 
 std::ostream& operator<<(std::ostream& os, const ElectronicWatch& w)
 {
-	os << static_cast<const Watch&>(w) << ", —рок батареи: " << w.batteryLife << " мес.";
+	os << static_cast<const Watch&>(w) << std::setw(18) << "Ёлектронные";
 	return os;
 }
 
 std::istream& operator>>(std::istream& is, ElectronicWatch& w)
 {
 	is >> static_cast<Watch&>(w);                                       
-	std::cout << "—рок службы батареи (мес): ";
 	is >> w.batteryLife;
 	return is;
 }

@@ -16,6 +16,5 @@ public:
 	friend std::ostream& operator<<(std::ostream& os, const WristWatch& w);
 	friend std::istream& operator>>(std::istream& is, WristWatch& w);
 
-	void printRow() const override;
 	void inputParams() override;
 };
